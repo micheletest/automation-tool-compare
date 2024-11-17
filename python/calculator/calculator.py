@@ -19,12 +19,15 @@ if not sys.argv[1]:
     sys.exit(1)
 input_filepath = sys.argv[1]
 
-with open(input_filepath) as fp:
-    with sync_playwright() as p:
-        browser = p.firefox.launch(headless=False)
-        page = browser.new_page()
-        page.goto(CALCULATOR_URL)
+with sync_playwright() as p:
+    browser = p.firefox.launch(headless=False)
+    page = browser.new_page()
+    page.goto(CALCULATOR_URL)
+    with open(input_filepath) as fp:
         csv_reader = csv.reader(fp)
         for row in csv_reader:
             calculate_bond(page, row)
-        page.pause()
+    page.get_by_alt_text("Save this list.").click()
+    html = page.content()
+    with open("saved-bonds.html", "w") as file:
+        file.write(html)
