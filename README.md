@@ -4,12 +4,18 @@ Savings bond calculator for treasury direct using playwright
 
 ## Requirements for both versions
 
-Create a .csv file in the format of: Series, Denomination, Serial Number (not required can leave blank), Issue Date (MM/YYYY)
-Example:
+Create a .csv file in the format of: Series, Denomination, Issue Date (MMYYYY), Serial Number (optional)
+
+| Series | Denomination | Issue Date | Serial Number |
+| ------ | ------------ | ---------- | ------------- |
+| EE     | 50           | 011976     | XXXXXXXXXXXX  |
+| E      | 25           | 052011     |               |
+
+File contents savings-bond.csv
 
 ```
-EE, 50, XXXXXXXXXXXX,  01/1976
-E, 25,, 05/2011
+EE,50,011976,XXXXXXXXXXXX
+E,25,052011,
 ```
 
 ## Python version
