@@ -43,3 +43,9 @@ The output of the bonds entered will be saved. You will receive a saved file cal
 ## Browser note
 
 The chosen browser is Firefox because per Treasury Direct guidance, Chrome doesn't work with saving the output of the calculation.
+
+## Why did I do this?
+
+I have a bunch of savings bonds (>50), some fully matured, and some not. I wanted to verify their estimated price before cashing them in. It's so much easier to enter in details to a csv than to the website.
+
+There were a few fully featured calculators already, including one that used selenium. I didn't really need to write this, but I did want to develop a Playwright version. This didn't turn out to be the best example of Playwright though. I'm using both python and javascript versions as libraries, so not using full capabilities. And my locator strategy is not ideal. I prefer to use accessibility selectors, but this was quick, easy, and the page is pretty static.
