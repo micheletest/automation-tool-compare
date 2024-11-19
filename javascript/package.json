@@ -14,5 +14,8 @@
   },
   "scripts": {
     "calc": "node src/calculator.js"
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1"
   }
 }
