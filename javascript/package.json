@@ -1,0 +1,21 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "savings bond calculator",
+  "main": "index.js",
+  "repository": "https://github.com/micheletest/saving-bond-calculator",
+  "author": "Michele Martone",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.9.0"
+  },
+  "scripts": {
+    "calc": "node src/calculator.js"
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1"
+  }
+}
