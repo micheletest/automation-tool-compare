@@ -59,7 +59,11 @@ const calculateBond = async (page, bond) => {
   await page.getByAltText("Save this list.").click();
   const html = await page.content();
   const endTime = performance.now();
-  console.log(`Call to doSomething took ${endTime - startTime} milliseconds`);
+  console.log(
+    `Call to calculate bonds and get page content took ${
+      endTime - startTime
+    } milliseconds`
+  );
   fs.writeFile("saved-bonds.html", html, "utf8", (err) => {
     if (err) {
       console.error(`Error writing to file:`, err);

@@ -31,6 +31,8 @@ with sync_playwright() as p:
     page.get_by_alt_text("Save this list.").click()
     html = page.content()
     end_time = time.time()
-    print(f"time taken = {end_time - start_time} seconds")
+    print(
+        f"Call to calculate bond and get page content took {end_time - start_time} seconds"
+    )
     with open("saved-bonds.html", "w") as file:
         file.write(html)
