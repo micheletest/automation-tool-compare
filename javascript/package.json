@@ -16,6 +16,7 @@
     "calc": "node src/calculator.js"
   },
   "dependencies": {
-    "papaparse": "^5.4.1"
+    "papaparse": "^5.4.1",
+    "perf_hooks": "^0.0.1"
   }
 }
