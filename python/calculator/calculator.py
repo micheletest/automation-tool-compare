@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-import csv, sys
+import csv, sys, time
 
 CALCULATOR_URL = "https://treasurydirect.gov/BC/SBCPrice"
 
@@ -23,11 +23,16 @@ with sync_playwright() as p:
     browser = p.firefox.launch(headless=False)
     page = browser.new_page()
     page.goto(CALCULATOR_URL)
+    start_time = time.time()
     with open(input_filepath) as fp:
         csv_reader = csv.reader(fp)
         for row in csv_reader:
             calculate_bond(page, row)
     page.get_by_alt_text("Save this list.").click()
     html = page.content()
+    end_time = time.time()
+    print(
+        f"Call to calculate bond and get page content took {end_time - start_time} seconds"
+    )
     with open("saved-bonds.html", "w") as file:
         file.write(html)

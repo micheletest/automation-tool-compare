@@ -1,5 +1,5 @@
 import fs from "fs";
-import path from "path";
+import { performance } from "perf_hooks";
 import papa from "papaparse";
 import { firefox } from "playwright";
 
@@ -51,12 +51,19 @@ const calculateBond = async (page, bond) => {
   const page = await context.newPage();
   await page.goto("https://treasurydirect.gov/BC/SBCPrice");
 
+  const startTime = performance.now();
   for (const bond of bonds) {
     console.log(bond);
     await calculateBond(page, bond);
   }
   await page.getByAltText("Save this list.").click();
   const html = await page.content();
+  const endTime = performance.now();
+  console.log(
+    `Call to calculate bonds and get page content took ${
+      endTime - startTime
+    } milliseconds`
+  );
   fs.writeFile("saved-bonds.html", html, "utf8", (err) => {
     if (err) {
       console.error(`Error writing to file:`, err);
