@@ -1,7 +1,7 @@
 {
-  "name": "calculator",
+  "name": "tool-compare",
   "version": "1.0.0",
-  "description": "savings bond calculator",
+  "description": "automation tool compare",
   "main": "index.js",
   "repository": "https://github.com/micheletest/saving-bond-calculator",
   "author": "Michele Martone",
