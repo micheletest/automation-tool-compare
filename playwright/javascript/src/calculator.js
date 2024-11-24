@@ -53,7 +53,6 @@ const calculateBond = async (page, bond) => {
 
   const startTime = performance.now();
   for (const bond of bonds) {
-    console.log(bond);
     await calculateBond(page, bond);
   }
   await page.getByAltText("Save this list.").click();
